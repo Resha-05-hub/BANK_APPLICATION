@@ -102,77 +102,22 @@ Step 5: Run the Application
 - Right-click → Run As → Java Application
 
 ---
-```
-## 🗄️ Database Setup (Oracle SQL)
-
-Drop Existing Objects
-DROP TABLE TRANSFER_TBL;
-DROP TABLE ACCOUNT_TABLE;
-DROP SEQUENCE transaction_seq;
-
-Create Account Table
-CREATE TABLE ACCOUNT_TABLE (
-    Account_Number VARCHAR2(10) PRIMARY KEY,
-    Account_Name   VARCHAR2(50),
-    Balance        NUMBER(12,2)
-);
-
-Create Transaction Table
-CREATE TABLE TRANSFER_TBL (
-    Transaction_ID NUMBER PRIMARY KEY,
-    Account_Number VARCHAR2(10) NOT NULL,
-    Beneficiary_Account_Number VARCHAR2(10) NOT NULL,
-    Transaction_Date DATE DEFAULT SYSDATE,
-    Transaction_Amount NUMBER(12,2),
-    CONSTRAINT fk_account_new
-        FOREIGN KEY (Account_Number)
-        REFERENCES ACCOUNT_TABLE(Account_Number),
-    CONSTRAINT fk_beneficiary_new
-        FOREIGN KEY (Beneficiary_Account_Number)
-        REFERENCES ACCOUNT_TABLE(Account_Number)
-);
-
-Create Transaction Sequence
-CREATE SEQUENCE transaction_seq
-START WITH 1000
-INCREMENT BY 1
-NOCACHE;
-
-Insert Sample Data
-INSERT INTO ACCOUNT_TABLE VALUES ('ACC001', 'Ravi', 50000);
-INSERT INTO ACCOUNT_TABLE VALUES ('ACC002', 'Kumar', 30000);
-INSERT INTO ACCOUNT_TABLE VALUES ('ACC003', 'Anitha', 45000);
-
-COMMIT;
-
-View Tables
-SELECT * FROM ACCOUNT_TABLE;
-SELECT * FROM TRANSFER_TBL;
-
-Reset Database (Optional)
-TRUNCATE TABLE TRANSFER_TBL;
-
-UPDATE ACCOUNT_TABLE SET Balance = 50000 WHERE Account_Number = 'ACC001';
-UPDATE ACCOUNT_TABLE SET Balance = 30000 WHERE Account_Number = 'ACC002';
-UPDATE ACCOUNT_TABLE SET Balance = 45000 WHERE Account_Number = 'ACC003';
-
-COMMIT;
-
-```
-
----
 
 ## 📸 Output
 
 Eclipse Console Output
 
-[Eclipse Output 1](https://github.com/user-attachments/assets/73a20324-6d57-4cf7-b15b-8ac4a94e4178)  
-[Eclipse Output 2](https://github.com/user-attachments/assets/4fc4fe35-6ec3-49e2-9618-f49a64703e72)
+<img width="1919" height="483" alt="image" src="https://github.com/user-attachments/assets/baa85a28-7d79-40e9-a883-7bfb8a74ac3d" />
+
+<img width="1919" height="537" alt="image" src="https://github.com/user-attachments/assets/f3612733-5b1d-4f1b-9a1e-9b4375d2f5f1" />
+
 
 Oracle Database Output
 
-[Oracle Output 1](https://github.com/user-attachments/assets/d9bcd31f-da00-4fd1-b2ef-65446adb66bd)  
-[Oracle Output 2](https://github.com/user-attachments/assets/0efcf434-6326-4608-bfde-36564b4a2a06)
+<img width="1430" height="553" alt="image" src="https://github.com/user-attachments/assets/85174b84-f142-423d-a540-bd0910b060d9" />
+ 
+<img width="1808" height="555" alt="image" src="https://github.com/user-attachments/assets/6c14a79d-2621-4c43-8c58-754bc41aff9a" />
+
 
 ---
 
